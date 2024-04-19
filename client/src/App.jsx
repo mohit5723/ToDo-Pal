@@ -6,10 +6,11 @@ import axios from 'axios';
 function App() {
 	const [todoList, setTodoList] = useState([]);
 	const [todoInput, setTodoInput] = useState('');
+	axios.defaults.withCredentials = true;
 
 	const fetchData = async () => {
 		try {
-			const response = await axios.get('http://localhost:3000/display-todo');
+			const response = await axios.get('https://to-do-pal-api.vercel.app/display-todo');
 			// console.log(response.data)
 			setTodoList(response.data);
 		} catch (error) {
@@ -20,7 +21,7 @@ function App() {
 	const addTodo = async (e) => {
 		e.preventDefault();
 		try {
-			const response = await axios.post('http://localhost:3000/add-todo', {
+			const response = await axios.post('https://to-do-pal-api.vercel.app/add-todo', {
 				todo: todoInput,
 			});
 			setTodoInput('');
@@ -33,7 +34,7 @@ function App() {
 	const deleteTodo = async (id) => {
 		try {
 			const response = await axios.delete(
-				`http://localhost:3000/delete-todo/${id}`
+				`https://to-do-pal-api.vercel.app/${id}`
 			);
 
 			fetchData();
