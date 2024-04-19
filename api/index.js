@@ -6,7 +6,7 @@ const Todo = require('./models/todo.models.js');
 const cors = require('cors');
 
 app.use(express.json());
-app.use(cors({ credentials: true, origin: 'http://localhost:5173' }));
+app.use(cors({ credentials: true, origin: 'https://todo-pal.vercel.app/', methods:["POST","GET"], }));
 const uri =
 	'mongodb+srv://mohitgoswami379:H30y9LOv4RskaO6p@cluster0.dohlaol.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
 mongoose.connect(uri);
