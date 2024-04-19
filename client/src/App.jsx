@@ -34,7 +34,7 @@ function App() {
 	const deleteTodo = async (id) => {
 		try {
 			const response = await axios.delete(
-				`https://to-do-pal-api.vercel.app/${id}`
+				`https://to-do-pal-api.vercel.app/delete-todo/${id}`
 			);
 
 			fetchData();
